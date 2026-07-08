@@ -13,8 +13,7 @@ const componentExtensions = new Set([".tsx"]);
 const testExtensions = new Set([".ts", ".tsx"]);
 
 function walk(dir, predicate) {
-  if (!existsSync(dir))
-    return [];
+  if (!existsSync(dir)) return [];
 
   return readdirSync(dir).flatMap((entry) => {
     const fullPath = join(dir, entry);
@@ -29,7 +28,10 @@ function walk(dir, predicate) {
 }
 
 function toImportPath(filePath) {
-  return relative(srcRoot, filePath).split(sep).join("/").replace(/\.[^.]+$/, "");
+  return relative(srcRoot, filePath)
+    .split(sep)
+    .join("/")
+    .replace(/\.[^.]+$/, "");
 }
 
 function hasComponentNameReference(testContent, componentName) {
@@ -41,29 +43,55 @@ function hasComponentNameReference(testContent, componentName) {
     new RegExp(`render\\([^)]*\\b${escapedName}\\b`),
   ];
 
-  return patterns.some(pattern => pattern.test(testContent));
+  return patterns.some((pattern) => pattern.test(testContent));
 }
 
-const components = componentDirs.flatMap(dir =>
-  walk(dir, filePath =>
-    componentExtensions.has(extname(filePath)) && !filePath.includes(".test.")));
+function hasRelativeImportReference(testFilePath, testContent, componentPath) {
+  const testDir = testFilePath.slice(0, testFilePath.lastIndexOf(sep));
+  const relativeImport = relative(testDir, componentPath)
+    .split(sep)
+    .join("/")
+    .replace(/\.[^.]+$/, "");
+  const normalizedImport = relativeImport.startsWith(".") ? relativeImport : `./${relativeImport}`;
+  const escapedImport = normalizedImport.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-const tests = walk(srcRoot, filePath =>
-  filePath.includes(".test.") && testExtensions.has(extname(filePath))).map(filePath => readFileSync(filePath, "utf8")).join("\n");
+  return new RegExp(`from\\s+["']${escapedImport}["']`).test(testContent);
+}
+
+const components = componentDirs.flatMap((dir) =>
+  walk(
+    dir,
+    (filePath) => componentExtensions.has(extname(filePath)) && !filePath.includes(".test."),
+  ),
+);
+
+const testFiles = walk(
+  srcRoot,
+  (filePath) => filePath.includes(".test.") && testExtensions.has(extname(filePath)),
+).map((filePath) => ({
+  filePath,
+  content: readFileSync(filePath, "utf8"),
+}));
+const tests = testFiles.map((testFile) => testFile.content).join("\n");
 
 const missing = components.filter((componentPath) => {
   const componentName = basename(componentPath, extname(componentPath));
   const importPath = toImportPath(componentPath);
   const relativePath = relative(srcRoot, componentPath).split(sep).join("/");
 
-  return !tests.includes(importPath)
-    && !tests.includes(relativePath)
-    && !hasComponentNameReference(tests, componentName);
+  return (
+    !tests.includes(importPath) &&
+    !tests.includes(relativePath) &&
+    !testFiles.some((testFile) =>
+      hasRelativeImportReference(testFile.filePath, testFile.content, componentPath),
+    ) &&
+    !hasComponentNameReference(tests, componentName)
+  );
 });
 
 if (missing.length > 0) {
   console.error("Missing component test coverage for:");
-  missing.forEach(filePath => console.error(`- ${relative(root, filePath)}`));
+  missing.forEach((filePath) => console.error(`- ${relative(root, filePath)}`));
   process.exit(1);
 }
 

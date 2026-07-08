@@ -4,11 +4,12 @@ import { describe, expect, it } from "vitest";
 import { DocsPage } from "./DocsPage";
 
 describe("docsPage", () => {
-  it("renders the SSR baseline table", () => {
+  it("renders the template guide content", () => {
     render(<DocsPage />);
 
-    expect(screen.getByRole("heading", { name: "企业级 SSR 基线" })).toBeInTheDocument();
-    expect(screen.getByText("服务端渲染")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "项目开发文档" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "推荐开发流程" })).toBeInTheDocument();
+    expect(screen.getByText("src/app")).toBeInTheDocument();
   });
 
   it("has no obvious accessibility violations", async () => {

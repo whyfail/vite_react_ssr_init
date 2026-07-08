@@ -1,17 +1,21 @@
-import Link from "next/link";
 import { LoginForm } from "@/features/auth/components/LoginForm";
+import { LoginPrism } from "./LoginPrism";
 
 export function LoginPage() {
   return (
-    <main className="login-page">
-      <section className="login-panel" aria-labelledby="login-title">
-        <p className="badge">Node SSR</p>
-        <h1 id="login-title" className="page-title">CWA React SSR</h1>
-        <p className="page-subtitle">登录示例只在客户端写入本地 token，服务端渲染路径保持无浏览器 API 依赖。</p>
+    <main className="relative grid min-h-screen place-items-center overflow-hidden p-6">
+      <LoginPrism />
+      <section
+        className="relative z-10 w-full max-w-[520px] rounded-[32px] bg-[#ecf0f350] p-8 shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] backdrop-blur-md"
+        aria-labelledby="login-title"
+      >
+        <h1
+          id="login-title"
+          className="text-center text-[32px] leading-tight font-bold text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]"
+        >
+          登录
+        </h1>
         <LoginForm />
-        <div className="form-grid">
-          <Link className="button" href="/docs">查看文档页</Link>
-        </div>
       </section>
     </main>
   );

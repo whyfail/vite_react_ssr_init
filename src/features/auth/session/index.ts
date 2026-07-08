@@ -9,15 +9,13 @@ export function isAuthenticated() {
 }
 
 export function getToken() {
-  if (!canUseStorage())
-    return null;
+  if (!canUseStorage()) return null;
 
   return window.localStorage.getItem(KEY_TOKEN) || window.sessionStorage.getItem(KEY_TOKEN);
 }
 
 export function setToken(token: string, remember = false) {
-  if (!canUseStorage())
-    return;
+  if (!canUseStorage()) return;
 
   window.sessionStorage.setItem(KEY_TOKEN, token);
 
@@ -27,8 +25,7 @@ export function setToken(token: string, remember = false) {
 }
 
 export function clearToken() {
-  if (!canUseStorage())
-    return;
+  if (!canUseStorage()) return;
 
   window.localStorage.removeItem(KEY_TOKEN);
   window.sessionStorage.removeItem(KEY_TOKEN);

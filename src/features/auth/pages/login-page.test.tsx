@@ -7,7 +7,7 @@ describe("loginPage", () => {
   it("renders the login page", () => {
     render(<LoginPage />);
 
-    expect(screen.getByRole("heading", { name: "CWA React SSR" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "登录" })).toBeInTheDocument();
     expect(screen.getByLabelText("账号")).toBeInTheDocument();
   });
 

@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [".next", "coverage", "node_modules", "playwright-report", "test-results"],
+  "sortTailwindcss": {
+    "attributes": ["class", "className"],
+    "functions": ["clsx", "cn", "cva"],
+    "stylesheet": "./src/app/tailwind.css"
+  }
+}

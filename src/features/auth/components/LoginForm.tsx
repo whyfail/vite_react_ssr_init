@@ -1,14 +1,18 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { LogIn } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { setToken } from "@/features/auth/session";
+import { Alert, AlertDescription } from "@/shared/ui/alert";
+import { Button } from "@/shared/ui/button";
+import { Input } from "@/shared/ui/input";
+import { Label } from "@/shared/ui/label";
 
 export function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState("");
+  const [remember, setRemember] = useState(false);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -21,25 +25,56 @@ export function LoginForm() {
       return;
     }
 
-    setToken("demo-token", true);
+    setToken("demo-token", remember);
     router.push("/docs");
   }
 
   return (
-    <form className="form-grid" onSubmit={onSubmit}>
-      {error ? <div className="alert">{error}</div> : null}
-      <div className="field">
-        <label htmlFor="username">账号</label>
-        <input id="username" name="username" autoComplete="username" placeholder="admin" />
+    <form className="mt-6 flex flex-col gap-4" onSubmit={onSubmit}>
+      {error ? (
+        <Alert className="bg-white/85" variant="destructive">
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      ) : null}
+      <div className="grid gap-1.5">
+        <Label className="sr-only" htmlFor="username">
+          账号
+        </Label>
+        <Input
+          className="h-10 bg-white/80"
+          id="username"
+          name="username"
+          autoComplete="username"
+          defaultValue="admin"
+          placeholder="请输入账号：admin"
+        />
       </div>
-      <div className="field">
-        <label htmlFor="password">密码</label>
-        <input id="password" name="password" type="password" autoComplete="current-password" placeholder="任意密码" />
+      <div className="grid gap-1.5">
+        <Label className="sr-only" htmlFor="password">
+          密码
+        </Label>
+        <Input
+          className="h-10 bg-white/80"
+          id="password"
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          defaultValue="admin"
+          placeholder="请输入登录密码：admin"
+        />
       </div>
-      <button className="button primary" type="submit">
-        <LogIn size={16} aria-hidden="true" />
+      <Button className="h-10 w-full" type="submit">
         登录
-      </button>
+      </Button>
+      <label className="flex items-center justify-end gap-2 text-sm text-white">
+        <input
+          className="size-4 rounded border-white/70 bg-white/80 accent-primary"
+          checked={remember}
+          type="checkbox"
+          onChange={(event) => setRemember(event.target.checked)}
+        />
+        记住账号
+      </label>
     </form>
   );
 }

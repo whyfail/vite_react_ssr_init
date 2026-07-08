@@ -7,6 +7,8 @@ describe("loginForm", () => {
   it("shows validation feedback when fields are empty", async () => {
     render(<LoginForm />);
 
+    await userEvent.clear(screen.getByLabelText("账号"));
+    await userEvent.clear(screen.getByLabelText("密码"));
     await userEvent.click(screen.getByRole("button", { name: "登录" }));
 
     expect(screen.getByText("请输入账号和密码。")).toBeInTheDocument();
@@ -17,6 +19,7 @@ describe("loginForm", () => {
 
     await userEvent.type(screen.getByLabelText("账号"), "admin");
     await userEvent.type(screen.getByLabelText("密码"), "admin");
+    await userEvent.click(screen.getByLabelText("记住账号"));
     await userEvent.click(screen.getByRole("button", { name: "登录" }));
 
     expect(localStorage.getItem("cwa_ssr_token")).toBe("demo-token");

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
-import "./globals.css";
+import "./tailwind.css";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "CWA React SSR",
