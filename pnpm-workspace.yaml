@@ -1,0 +1,12 @@
+allowBuilds:
+  msw: true
+  sharp: true
+  simple-git-hooks: true
+  unrs-resolver: true
+ignoreTrustChecks: true
+shellEmulator: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080
+trustPolicyExclude:
+  - eslint-import-resolver-typescript@3.10.1
+  - semver@6.3.1
