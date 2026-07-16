@@ -28,6 +28,7 @@ Use **pnpm**: `pnpm install`, `pnpm dev`, `pnpm test`, `pnpm build`.
 
 ## Conventions
 
+- Lint uses the official Next.js flat config plus the Tailwind plugin; keep the ESLint 9 compatibility line until the Next.js plugin chain supports ESLint 10.
 - Next.js App Router entries live in `src/app`; business code in `src/features`; shared primitives in `src/shared`; server-only code in `src/server`.
 - Server components are default; add `"use client"` only for interactive or browser-only code.
 - Browser APIs must not run in server-rendered paths.
