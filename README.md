@@ -42,8 +42,8 @@
 - **开发语言**：TypeScript 6.0.3
 - **状态管理**：Zustand 5.0.14
 - **UI 组件库**：shadcn/ui + radix-ui
-- **样式方案**：Tailwind CSS 4.3.2 + Sass
-- **图标方案**：Heroicons + lucide-react 1.24.0
+- **样式方案**：Tailwind CSS 4.3.3 + Sass
+- **图标方案**：Heroicons + lucide-react 1.25.0
 - **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.59.0
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
 - **API 封装**：Axios 1.18.1
