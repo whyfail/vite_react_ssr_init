@@ -25,7 +25,7 @@
   <br>
 
   <div>
-    <img src="https://img.shields.io/badge/Node.js-%5E22.12.0%20%7C%7C%20%5E24.11.0%20%7C%7C%20%3E%3D26.0.0-brightgreen?style=flat-square" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Node.js-24.18.0-brightgreen?style=flat-square" alt="Node.js" />
     <img src="https://img.shields.io/badge/pnpm-11.10.0-blue?style=flat-square" alt="pnpm" />
     <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=flat-square" alt="License" />
   </div>
@@ -53,7 +53,7 @@
 
 ### 环境要求
 
-- Node.js `^22.12.0 || ^24.11.0 || >=26.0.0`
+- Node.js `24.18.0`（Krypton LTS；支持范围 `^24.18.0`）
 - pnpm `11.10.0`
 
 ### 安装依赖

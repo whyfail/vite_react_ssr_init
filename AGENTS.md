@@ -13,6 +13,7 @@
 ## Package Manager
 
 Use **pnpm**: `pnpm install`, `pnpm dev`, `pnpm test`, `pnpm build`.
+Use Node.js 24.18.0 as the runtime baseline; `package.json` supports the Node 24 line from `^24.18.0`.
 
 ## Commands
 
