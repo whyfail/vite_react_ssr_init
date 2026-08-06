@@ -26,7 +26,7 @@
 
   <div>
     <img src="https://img.shields.io/badge/Node.js-24.18.0-brightgreen?style=flat-square" alt="Node.js" />
-    <img src="https://img.shields.io/badge/pnpm-11.10.0-blue?style=flat-square" alt="pnpm" />
+    <img src="https://img.shields.io/badge/pnpm-11.20.0-blue?style=flat-square" alt="pnpm" />
     <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=flat-square" alt="License" />
   </div>
 </div>
@@ -37,16 +37,16 @@
 
 ## 🚀 技术栈
 
-- **SSR 框架**：Next.js 16 App Router
-- **前端框架**：React 19.2.7
+- **SSR 框架**：Next.js 16.3.0 App Router
+- **前端框架**：React 19.2.8
 - **开发语言**：TypeScript 6.0.3
 - **状态管理**：Zustand 5.0.14
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
-- **图标方案**：Heroicons + lucide-react 1.25.0
-- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.59.0
+- **图标方案**：Heroicons + lucide-react 1.28.0
+- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.62.0
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
-- **API 封装**：Axios 1.18.1
+- **API 封装**：Axios 1.19.0
 - **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
 
 ## 📦 快速开始
@@ -54,7 +54,7 @@
 ### 环境要求
 
 - Node.js `24.18.0`（Krypton LTS；支持范围 `^24.18.0`）
-- pnpm `11.10.0`
+- pnpm `11.20.0`
 
 ### 安装依赖
 

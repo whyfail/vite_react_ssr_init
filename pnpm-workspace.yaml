@@ -1,6 +1,7 @@
 allowBuilds:
   "@parcel/watcher": true
   msw: true
+  node-pty: true
   sharp: true
   simple-git-hooks: true
   unrs-resolver: true
