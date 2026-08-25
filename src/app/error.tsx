@@ -14,7 +14,7 @@ export default function ErrorPage({
 }) {
   return (
     <main className="grid min-h-screen place-items-center bg-background p-6">
-      <Card className="w-full max-w-[420px] p-7" aria-labelledby="error-title">
+      <Card className="w-full max-w-105 p-7" aria-labelledby="error-title">
         <CardHeader>
           <Badge variant="secondary">Error</Badge>
           <CardTitle asChild>

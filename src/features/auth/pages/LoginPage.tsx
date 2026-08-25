@@ -6,7 +6,7 @@ export function LoginPage() {
     <main className="relative grid min-h-screen place-items-center overflow-hidden p-6">
       <LoginPrism />
       <section
-        className="relative z-10 w-full max-w-[520px] rounded-[32px] bg-[#ecf0f350] p-8 shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] backdrop-blur-md"
+        className="relative z-10 w-full max-w-130 rounded-[32px] bg-[#ecf0f350] p-8 shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] backdrop-blur-md"
         aria-labelledby="login-title"
       >
         <h1

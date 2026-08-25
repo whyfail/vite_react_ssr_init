@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/sha
 export default function NotFound() {
   return (
     <main className="grid min-h-screen place-items-center bg-background p-6">
-      <Card className="w-full max-w-[420px] p-7" aria-labelledby="not-found-title">
+      <Card className="w-full max-w-105 p-7" aria-labelledby="not-found-title">
         <CardHeader>
           <Badge variant="secondary">404</Badge>
           <CardTitle asChild>

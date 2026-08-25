@@ -37,14 +37,14 @@
 
 ## 🚀 技术栈
 
-- **SSR 框架**：Next.js 16.3.0 App Router
+- **SSR 框架**：Next.js 16.3.2 App Router
 - **前端框架**：React 19.2.8
 - **开发语言**：TypeScript 6.0.3
 - **状态管理**：Zustand 5.0.14
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
 - **图标方案**：Heroicons + lucide-react 1.28.0
-- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.62.0
+- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.64.0
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
 - **API 封装**：Axios 1.19.0
 - **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
