@@ -6,20 +6,28 @@ on:
 
 jobs:
   verify:
+    name: Verify on Node ${{ matrix.node-version }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["24.11.0", "24.x"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 24.18.0
+          node-version: ${{ matrix.node-version }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm peers check --json
       - run: pnpm test:junit
       - run: pnpm test:coverage
       - run: pnpm test:component-coverage
       - run: pnpm typecheck
       - run: pnpm lint
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:e2e
-      - run: pnpm build
+      - if: matrix.node-version == '24.x'
+        run: pnpm exec playwright install --with-deps chromium
+      - if: matrix.node-version == '24.x'
+        run: pnpm test:e2e
+      - if: matrix.node-version != '24.x'
+        run: pnpm build

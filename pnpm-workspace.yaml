@@ -5,7 +5,6 @@ allowBuilds:
   sharp: true
   simple-git-hooks: true
   unrs-resolver: true
-ignoreTrustChecks: true
 shellEmulator: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 10080

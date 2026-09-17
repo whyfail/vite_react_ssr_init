@@ -1,32 +1,21 @@
-const KEY_TOKEN = "cwa_ssr_token";
-
-function canUseStorage() {
-  return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
+interface LoginCredentials {
+  username: string;
+  password: string;
+  remember: boolean;
 }
 
-export function isAuthenticated() {
-  return Boolean(getToken());
-}
+export async function createSession(credentials: LoginCredentials) {
+  const response = await fetch("/api/session", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  });
 
-export function getToken() {
-  if (!canUseStorage()) return null;
-
-  return window.localStorage.getItem(KEY_TOKEN) || window.sessionStorage.getItem(KEY_TOKEN);
-}
-
-export function setToken(token: string, remember = false) {
-  if (!canUseStorage()) return;
-
-  window.sessionStorage.setItem(KEY_TOKEN, token);
-
-  if (remember) {
-    window.localStorage.setItem(KEY_TOKEN, token);
+  if (!response.ok) {
+    throw new Error("登录失败，请检查账号和密码。");
   }
 }
 
-export function clearToken() {
-  if (!canUseStorage()) return;
-
-  window.localStorage.removeItem(KEY_TOKEN);
-  window.sessionStorage.removeItem(KEY_TOKEN);
-}
+export type { LoginCredentials };

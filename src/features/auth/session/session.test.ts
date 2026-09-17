@@ -1,17 +1,29 @@
-import { describe, expect, it } from "vitest";
-import { clearToken, getToken, isAuthenticated, setToken } from "./index";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { createSession } from "./index";
 
 describe("auth session", () => {
-  it("stores and clears the demo token on the client", () => {
-    expect(isAuthenticated()).toBe(false);
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
 
-    setToken("demo", true);
+  it("creates an HttpOnly server session through the session endpoint", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal("fetch", fetchMock);
 
-    expect(getToken()).toBe("demo");
-    expect(localStorage.getItem("cwa_ssr_token")).toBe("demo");
+    await createSession({ username: "admin", password: "admin", remember: true });
 
-    clearToken();
+    expect(fetchMock).toHaveBeenCalledWith("/api/session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: "admin", password: "admin", remember: true }),
+    });
+  });
 
-    expect(isAuthenticated()).toBe(false);
+  it("rejects failed login attempts", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+
+    await expect(
+      createSession({ username: "admin", password: "wrong", remember: false }),
+    ).rejects.toThrow("登录失败");
   });
 });

@@ -25,7 +25,7 @@
   <br>
 
   <div>
-    <img src="https://img.shields.io/badge/Node.js-24.18.0-brightgreen?style=flat-square" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Node.js-24.x-brightgreen?style=flat-square" alt="Node.js" />
     <img src="https://img.shields.io/badge/pnpm-11.20.0-blue?style=flat-square" alt="pnpm" />
     <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=flat-square" alt="License" />
   </div>
@@ -37,14 +37,14 @@
 
 ## 🚀 技术栈
 
-- **SSR 框架**：Next.js 16.3.4 App Router
+- **SSR 框架**：Next.js 16.3.5 App Router
 - **前端框架**：React 19.3.0
 - **开发语言**：TypeScript 6.0.3
 - **状态管理**：Zustand 5.0.14
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
-- **图标方案**：Heroicons + lucide-react 1.45.0
-- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.67.0（保留 ESLint 9：Next 插件链尚未支持 ESLint 10）
+- **图标方案**：Heroicons + lucide-react 1.46.0
+- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.68.0（保留 ESLint 9：Next 插件链尚未支持 ESLint 10）
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
 - **API 封装**：Axios 1.20.0
 - **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
@@ -53,7 +53,7 @@
 
 ### 环境要求
 
-- Node.js `24.18.0`（Krypton LTS；支持范围 `^24.18.0`）
+- Node.js 24 LTS（Krypton；支持范围 `>=24.11.0 <25`，推荐最新 24.x）
 - pnpm `11.20.0`
 
 ### 安装依赖
@@ -112,8 +112,8 @@ tests/e2e/             # Playwright E2E 用例
 ### 🔐 登录示例
 
 - ✅ 提供模板级登录页和 session 示例
-- ✅ Demo token 仅在客户端安全交互中写入浏览器存储
-- ✅ 真实业务 SSR 登录建议改用 cookie 或请求头
+- ✅ 登录示例通过 Route Handler 写入 HttpOnly、SameSite Cookie
+- ✅ `proxy.ts` 在服务端保护 `/docs` 路由，业务项目需替换示例凭据校验
 
 ### 🎨 UI 与样式
 

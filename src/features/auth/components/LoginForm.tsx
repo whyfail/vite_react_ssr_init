@@ -3,7 +3,7 @@
 import type { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { setToken } from "@/features/auth/session";
+import { createSession } from "@/features/auth/session";
 import { Alert, AlertDescription } from "@/shared/ui/alert";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
@@ -14,7 +14,7 @@ export function LoginForm() {
   const [error, setError] = useState("");
   const [remember, setRemember] = useState(false);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const username = String(form.get("username") || "");
@@ -25,8 +25,13 @@ export function LoginForm() {
       return;
     }
 
-    setToken("demo-token", remember);
-    router.push("/docs");
+    try {
+      await createSession({ username, password, remember });
+      router.push("/docs");
+      router.refresh();
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "登录失败，请稍后重试。");
+    }
   }
 
   return (
