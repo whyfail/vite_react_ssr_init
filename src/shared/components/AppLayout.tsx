@@ -19,7 +19,7 @@ export function AppLayout({ activePath, title, subtitle, children }: AppLayoutPr
           <span className="grid size-8.5 place-items-center rounded-full bg-primary text-primary-foreground">
             SSR
           </span>
-          <span>CWA React SSR</span>
+          <span>React SSR Template</span>
         </Link>
         <nav className="mt-7 grid gap-1.5">
           <Link

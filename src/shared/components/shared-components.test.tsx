@@ -11,7 +11,7 @@ describe("shared components", () => {
       </AppLayout>,
     );
 
-    expect(screen.getByText("CWA React SSR")).toBeInTheDocument();
+    expect(screen.getByText("React SSR Template")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "标题" })).toBeInTheDocument();
     expect(screen.getByText("内容")).toBeInTheDocument();
   });

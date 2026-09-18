@@ -4,7 +4,7 @@ import "./tailwind.css";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "CWA React SSR",
+  title: "React SSR Template",
   description: "Enterprise Next.js SSR template for create-wl-app.",
 };
 

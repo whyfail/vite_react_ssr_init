@@ -5,7 +5,7 @@ export async function getServerRequestContext() {
   const headerStore = await headers();
 
   return {
-    token: cookieStore.get("cwa_token")?.value,
+    token: cookieStore.get("auth_token")?.value,
     userAgent: headerStore.get("user-agent") || "unknown",
   };
 }

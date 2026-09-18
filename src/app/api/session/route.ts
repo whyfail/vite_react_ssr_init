@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 
   // Replace the demo value with the token returned by the real authentication service.
   const response = NextResponse.json({ authenticated: true });
-  response.cookies.set("cwa_token", "demo-token", {
+  response.cookies.set("auth_token", "demo-token", {
     httpOnly: true,
     maxAge: body.remember ? 60 * 60 * 24 * 30 : undefined,
     sameSite: "lax",

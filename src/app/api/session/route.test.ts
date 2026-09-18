@@ -22,7 +22,7 @@ describe("session route", () => {
     );
 
     expect(response.status).toBe(200);
-    expect(response.headers.get("set-cookie")).toContain("cwa_token=demo-token");
+    expect(response.headers.get("set-cookie")).toContain("auth_token=demo-token");
     expect(response.headers.get("set-cookie")).toContain("HttpOnly");
   });
 });

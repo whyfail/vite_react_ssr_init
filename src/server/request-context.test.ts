@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 
 vi.mock("next/headers", () => ({
   cookies: async () => ({
-    get: (key: string) => (key === "cwa_token" ? { value: "token" } : undefined),
+    get: (key: string) => (key === "auth_token" ? { value: "token" } : undefined),
   }),
   headers: async () => ({
     get: (key: string) => (key === "user-agent" ? "vitest" : null),
