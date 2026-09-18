@@ -214,6 +214,17 @@ NEXT_ENABLE_CODE_INSPECTOR=true NEXT_CODE_INSPECTOR_ACTION=copy pnpm dev
 | `components.json`       | shadcn/ui 组件配置           |
 | `commitlint.config.cjs` | Conventional Commit 校验配置 |
 
+## 🐳 容器化部署
+
+模板内置多阶段 Dockerfile：`next build` 产出 standalone 产物，最终镜像以非 root 用户运行编译后的服务器，无需源码与包管理器。
+
+```bash
+docker build -t my-ssr-app .
+docker run -p 3000:3000 my-ssr-app
+```
+
+接入真实后端时，通过环境变量注入服务端使用的后端地址（参见 `docs/frontend-integration.md` 的 BFF 说明），不要使用 `NEXT_PUBLIC_*` 暴露。
+
 ## 📝 提交规范
 
 提交信息使用 Conventional Commits：
