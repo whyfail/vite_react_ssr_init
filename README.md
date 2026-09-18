@@ -77,6 +77,12 @@ pnpm build
 pnpm preview
 ```
 
+## 🔗 推荐后端模板
+
+需要真实后端联调？直接搭配同系列的企业级后端模板 [springboot-template](https://github.com/whyfail/springboot-template)。
+
+SSR 侧的 HttpOnly Cookie 会话（本模板 `/api/session` BFF，Cookie 名 `auth_token`）正是为它设计的：BFF 服务端调用 `POST /api/v1/login`，把返回 token 写入 HttpOnly Cookie，服务端再转成 `Authorization: Bearer` 调用后端。后端基于 Java 25 + Spring Boot 4 模块化单体，内置 Redis 会话、登录限流、安全审计与 Testcontainers 质量门禁。
+
 ## 📁 项目结构
 
 ```txt
