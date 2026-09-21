@@ -33,7 +33,7 @@
 
 ---
 
-这是 create-wl-app 的企业级 React SSR 模板。项目基于 Next.js App Router + React 19 构建，默认提供服务端渲染边界、登录示例、开发文档页、shadcn/ui + Tailwind CSS 现代 UI 栈、统一 API 封装、组件测试、E2E 和提交规范，适合团队和 AI Agent 稳定扩展业务代码。
+这是 cwa-stack 的企业级 React SSR 模板。项目基于 Next.js App Router + React 19 构建，默认提供服务端渲染边界、登录示例、开发文档页、shadcn/ui + Tailwind CSS 现代 UI 栈、统一 API 封装、组件测试、E2E 和提交规范，适合团队和 AI Agent 稳定扩展业务代码。
 
 ## 🚀 技术栈
 

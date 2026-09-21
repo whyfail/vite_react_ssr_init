@@ -5,7 +5,7 @@ import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "React SSR Template",
-  description: "Enterprise Next.js SSR template for create-wl-app.",
+  description: "Enterprise Next.js SSR template for cwa-stack.",
 };
 
 export default function RootLayout({
