@@ -16,6 +16,7 @@ export default defineConfig({
         "src/test/**",
         "src/**/*.d.ts",
         "src/app/**/{layout,page,loading,error,not-found}.tsx",
+        "src/shared/api/generated/**",
       ],
       thresholds: {
         lines: 80,

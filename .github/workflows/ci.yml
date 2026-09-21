@@ -20,6 +20,10 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm peers check --json
+      - name: Check OpenAPI generated types drift
+        run: |
+          pnpm api:generate
+          git diff --exit-code -- src/shared/api/generated
       - run: pnpm test:junit
       - run: pnpm test:coverage
       - run: pnpm test:component-coverage

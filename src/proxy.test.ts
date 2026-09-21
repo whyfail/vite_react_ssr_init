@@ -12,7 +12,7 @@ describe("auth proxy", () => {
 
   it("allows requests with a session cookie", () => {
     const request = new NextRequest("http://localhost/docs", {
-      headers: { cookie: "auth_token=demo-token" },
+      headers: { cookie: "auth_token=unit-test-opaque-token" },
     });
 
     expect(proxy(request).status).toBe(200);

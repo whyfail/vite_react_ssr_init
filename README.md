@@ -225,6 +225,15 @@ docker run -p 3000:3000 my-ssr-app
 
 接入真实后端时，通过环境变量注入服务端使用的后端地址（参见 `docs/frontend-integration.md` 的 BFF 说明），不要使用 `NEXT_PUBLIC_*` 暴露。
 
+## 🔐 认证与会话
+
+- 浏览器只与 BFF 会话 API（`/api/session`）交互；登录 `POST /api/session`，退出 `DELETE /api/session`。
+- BFF 服务端调用后端 `POST {BACKEND_API_BASE_URL}/login`（契约见 `openapi/api-contract.yaml`），成功后把不透明 token 写入 HttpOnly Cookie `auth_token`，`Max-Age` 不超过后端 `expiresAt`。
+- 服务端请求通过 `src/server/backend.ts` 的 `backendFetch` 把 Cookie token 转换为 `Authorization: Bearer` 调用后端；token 不进入浏览器 JS 与 localStorage。
+- 登录失败时 BFF 透传后端 Problem Details 顶层 `code/msg/requestId`。
+- `ENABLE_AUTH_MOCK=true` 时启用会话 Mock（演示账号 `admin`/`admin`），用于无后端的本地开发与模板 E2E；生产保持 `false`。
+- 契约类型由 `pnpm api:generate` 从 `openapi/api-contract.yaml` 生成到 `src/shared/api/generated`（禁止手工编辑），服务端统一从 `src/server/contract.ts` 导入。
+
 ## 📝 提交规范
 
 提交信息使用 Conventional Commits：

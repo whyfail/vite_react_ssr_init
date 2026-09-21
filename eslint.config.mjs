@@ -21,5 +21,5 @@ export default defineConfig([
       "tailwindcss/no-custom-classname": "off",
     },
   },
-  globalIgnores([".next/**", "coverage/**", "playwright-report/**", "test-results/**"]),
+  globalIgnores([".next/**", "coverage/**", "playwright-report/**", "test-results/**", "src/shared/api/generated/**", "openapi/**"]),
 ]);

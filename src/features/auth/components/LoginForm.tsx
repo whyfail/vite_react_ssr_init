@@ -50,8 +50,7 @@ export function LoginForm() {
           id="username"
           name="username"
           autoComplete="username"
-          defaultValue="admin"
-          placeholder="请输入账号：admin"
+          placeholder="请输入账号"
         />
       </div>
       <div className="grid gap-1.5">
@@ -64,8 +63,7 @@ export function LoginForm() {
           name="password"
           type="password"
           autoComplete="current-password"
-          defaultValue="admin"
-          placeholder="请输入登录密码：admin"
+          placeholder="请输入登录密码"
         />
       </div>
       <Button className="h-10 w-full" type="submit">
