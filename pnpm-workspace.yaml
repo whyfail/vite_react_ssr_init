@@ -12,3 +12,4 @@ trustPolicyIgnoreAfter: 10080
 trustPolicyExclude:
   - eslint-import-resolver-typescript@3.10.1
   - semver@6.3.1
+  - why-is-node-running@3.2.2

@@ -29,7 +29,7 @@ Use the latest Node.js 24 LTS patch as the runtime baseline; `package.json` supp
 
 ## Conventions
 
-- Lint uses the official Next.js flat config plus the Tailwind plugin; keep the ESLint 9 compatibility line until the Next.js plugin chain supports ESLint 10. Verified on 2026-09-17: `eslint-config-next@16.3.5` pulls `eslint-plugin-react@7.37.5`, whose peer range stops at `^9.7` and which crashes under ESLint 10 during `detectReactVersion`, so do not bump `eslint` past 9 until that chain updates.
+- Lint uses the official Next.js flat config plus the Tailwind plugin; keep the ESLint 9 compatibility line until the Next.js plugin chain supports ESLint 10. Verified on 2026-09-17 and re-verified on 2026-09-28: `eslint-config-next@16.3.6` still pulls `eslint-plugin-react@7.37.5`, whose peer range stops at `^9.7` and which crashes under ESLint 10 during `detectReactVersion`, so do not bump `eslint` past 9 until that chain updates. Note: the ESLint 9 line is marked "no longer supported" upstream; this is an accepted, documented risk until `eslint-plugin-react` ships ESLint 10 support.
 - Next.js App Router entries live in `src/app`; business code in `src/features`; shared primitives in `src/shared`; server-only code in `src/server`.
 - Server components are default; add `"use client"` only for interactive or browser-only code.
 - Browser APIs must not run in server-rendered paths.
