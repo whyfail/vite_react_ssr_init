@@ -26,7 +26,7 @@
 
   <div>
     <img src="https://img.shields.io/badge/Node.js-24.x-brightgreen?style=flat-square" alt="Node.js" />
-    <img src="https://img.shields.io/badge/pnpm-11.20.0-blue?style=flat-square" alt="pnpm" />
+    <img src="https://img.shields.io/badge/pnpm-12.14.0-blue?style=flat-square" alt="pnpm" />
     <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=flat-square" alt="License" />
   </div>
 </div>
@@ -54,7 +54,7 @@
 ### 环境要求
 
 - Node.js 24 LTS（Krypton；支持范围 `>=24.11.0 <25`，推荐最新 24.x）
-- pnpm `11.20.0`
+- pnpm `12.14.0`
 
 ### 安装依赖
 
