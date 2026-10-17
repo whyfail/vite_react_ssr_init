@@ -12,6 +12,7 @@ export default defineConfig({
       target: "./src/shared/api/generated/index.ts",
       schemas: "./src/shared/api/generated/model",
       clean: true,
+      formatter: "oxfmt",
     },
   },
 });

@@ -44,7 +44,7 @@
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
 - **图标方案**：Heroicons + lucide-react 1.52.0
-- **代码规范**：ESLint 10.12.0 + Next.js 官方 flat config + oxfmt 0.72.0（`eslint-config-next@16.4` 起插件链兼容 ESLint 10，已于 2026-10-08 本地验证）
+- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.72.0（遵守 Next.js 插件链的 ESLint peer 版本范围）
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
 - **API 封装**：Axios 1.20.0
 - **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
