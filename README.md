@@ -44,7 +44,7 @@
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
 - **图标方案**：Heroicons + lucide-react 1.52.0
-- **代码规范**：ESLint 9.39.5 + Next.js 官方 flat config + oxfmt 0.72.0（遵守 Next.js 插件链的 ESLint peer 版本范围）
+- **代码规范**：ESLint 10.13.0 + Next.js 官方 flat config + oxfmt 0.72.0
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
 - **API 封装**：Axios 1.20.0
 - **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
@@ -141,6 +141,8 @@ tests/e2e/             # Playwright E2E 用例
 - ✅ simple-git-hooks + lint-staged 处理提交前检查
 - ✅ commitlint 校验 Conventional Commit 信息
 - ✅ TypeScript 严格类型检查，提交前可运行 `pnpm typecheck`
+
+ESLint 10 使用 `eslint-config-next@16.4.0` 起提供的官方兼容处理。`pnpm-workspace.yaml` 仅为 `eslint-plugin-react@7.37.5`、`eslint-plugin-import@2.32.0` 和 `eslint-plugin-jsx-a11y@6.10.2` 修正 ESLint peer 范围；这些插件的上游声明尚未包含 ESLint 10。升级插件时需重新检查兼容性，并运行 `pnpm peers check` 与 `pnpm lint`；上游声明支持后移除对应修正。详见 [Next.js 官方说明](https://nextjs.org/docs/app/guides/upgrading/version-16#installation-fails-after-upgrading-eslint)。
 
 ## 🧪 测试与质量门禁
 

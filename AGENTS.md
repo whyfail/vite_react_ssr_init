@@ -29,7 +29,7 @@ Use the latest Node.js 24 LTS patch as the runtime baseline; `package.json` supp
 
 ## Conventions
 
-- Lint uses the official Next.js flat config plus the Tailwind plugin on ESLint 9.39.5. Keep ESLint within the Next.js plugin chain's peer ranges and run `pnpm peers check` after dependency changes.
+- Lint uses ESLint 10.13.0 with the official Next.js flat config (>=16.4.0) and Tailwind plugin. The exact-version peer overrides in `pnpm-workspace.yaml` rely on Next.js compatibility patches; review them on plugin upgrades and run `pnpm peers check` after dependency changes.
 - Next.js App Router entries live in `src/app`; business code in `src/features`; shared primitives in `src/shared`; server-only code in `src/server`.
 - Server components are default; add `"use client"` only for interactive or browser-only code.
 - Browser APIs must not run in server-rendered paths.
