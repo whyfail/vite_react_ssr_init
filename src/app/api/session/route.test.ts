@@ -1,5 +1,5 @@
 import { afterEach, afterAll, beforeAll, describe, expect, it, vi } from "vitest";
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse } from "msw/http";
 import { BACKEND_API_BASE_URL, server } from "@/test/backend-server";
 import { DELETE, POST } from "./route";
 
@@ -7,7 +7,7 @@ vi.mock("@/server/backend", () => ({
   backendFetch: vi.fn().mockResolvedValue(new Response(null, { status: 204 })),
 }));
 
-beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
+beforeAll(() => server.listen({ onUnhandledFrame: "error" }));
 afterEach(() => {
   server.resetHandlers();
   vi.unstubAllEnvs();

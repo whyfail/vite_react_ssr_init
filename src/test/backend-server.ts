@@ -1,4 +1,4 @@
-import { HttpResponse, http } from "msw";
+import { HttpResponse, http } from "msw/http";
 import { setupServer } from "msw/node";
 
 // 后端上游契约的固定桩。BACKEND_API_BASE_URL 由被测代码通过 vi.stubEnv 设置，

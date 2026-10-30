@@ -18,11 +18,26 @@ test("redirects anonymous users to login", async ({ page }) => {
   await expect(page).toHaveURL(/\/login$/);
 });
 
-test("renders docs page from production SSR preview", async ({ page }) => {
+test("serves login HTML and hydrates the production SSR flow", async ({ page, request }) => {
+  const response = await request.get("/login");
+
+  expect(response.ok()).toBe(true);
+  expect(await response.text()).toMatch(/<h1\b[^>]*id="login-title"[^>]*>\s*登录\s*<\/h1>/);
+
+  const browserErrors: string[] = [];
+
+  page.on("pageerror", (error) => browserErrors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error" || /hydration|hydrating/i.test(message.text())) {
+      browserErrors.push(message.text());
+    }
+  });
+
   await login(page);
 
   await expect(page.getByRole("heading", { name: "项目开发文档" })).toBeVisible();
   await expect(page.getByText("React SSR Template Guide")).toBeVisible();
+  expect(browserErrors).toEqual([]);
 });
 
 test("supports login smoke flow", async ({ page }) => {

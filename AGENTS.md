@@ -12,8 +12,8 @@
 
 ## Package Manager
 
-Use **pnpm 12.14.0**: `pnpm install`, `pnpm dev`, `pnpm test`, `pnpm build`.
-Use the latest Node.js 24 LTS patch as the runtime baseline; `package.json` supports `>=24.11.0 <25`.
+Use **pnpm 12.16.1**: `pnpm install`, `pnpm dev`, `pnpm test`, `pnpm build`.
+Use the latest Node.js 24 LTS patch as the runtime baseline; `package.json` supports `>=24.15.0 <25`.
 
 ## Commands
 

@@ -26,7 +26,7 @@
 
   <div>
     <img src="https://img.shields.io/badge/Node.js-24.x-brightgreen?style=flat-square" alt="Node.js" />
-    <img src="https://img.shields.io/badge/pnpm-12.14.0-blue?style=flat-square" alt="pnpm" />
+    <img src="https://img.shields.io/badge/pnpm-12.16.1-blue?style=flat-square" alt="pnpm" />
     <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=flat-square" alt="License" />
   </div>
 </div>
@@ -37,24 +37,24 @@
 
 ## 🚀 技术栈
 
-- **SSR 框架**：Next.js 16.4.0 App Router
-- **前端框架**：React 19.3.0
+- **SSR 框架**：Next.js 16.4.3 App Router
+- **前端框架**：React 19.3.1
 - **开发语言**：TypeScript 6.0.3
-- **状态管理**：Zustand 5.0.15
+- **状态管理**：Zustand 5.0.16
 - **UI 组件库**：shadcn/ui + radix-ui
 - **样式方案**：Tailwind CSS 4.3.3 + Sass
-- **图标方案**：Heroicons + lucide-react 1.52.0
-- **代码规范**：ESLint 10.13.0 + Next.js 官方 flat config + oxfmt 0.72.0
+- **图标方案**：Heroicons + lucide-react 1.64.0
+- **代码规范**：ESLint 10.13.0 + Next.js 官方 flat config + oxfmt 0.75.0
 - **提交规范**：simple-git-hooks + lint-staged + commitlint
-- **API 封装**：Axios 1.20.0
-- **测试体系**：Vitest + Testing Library + Playwright + MSW + jest-axe
+- **API 封装**：Axios 1.21.0
+- **测试体系**：Vitest + Testing Library + Playwright + MSW 3 + jest-axe
 
 ## 📦 快速开始
 
 ### 环境要求
 
-- Node.js 24 LTS（Krypton；支持范围 `>=24.11.0 <25`，推荐最新 24.x）
-- pnpm `12.14.0`
+- Node.js 24 LTS（Krypton；支持范围 `>=24.15.0 <25`，推荐最新 24.x）
+- pnpm `12.16.1`
 
 ### 安装依赖
 
