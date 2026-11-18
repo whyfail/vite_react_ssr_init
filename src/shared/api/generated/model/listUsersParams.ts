@@ -14,26 +14,18 @@ import type { SizeParameter } from "./sizeParameter";
 import type { SortParameter } from "./sortParameter";
 
 export type ListUsersParams = {
-  /**
-   * @maxLength 100
-   */
+  /** @maxLength 100 */
   keyword?: KeywordParameter;
   enabled?: EnabledParameter;
-  /**
-   * @pattern ^[A-Z][A-Z0-9_]{1,63}$
-   */
+  /** @pattern ^[A-Z][A-Z0-9_]{1,63}$ */
   role?: RoleParameter;
-  /**
-   * @minimum 0
-   */
+  /** @minimum 0 */
   page?: PageParameter;
   /**
    * @minimum 1
    * @maximum 100
    */
   size?: SizeParameter;
-  /**
-   * 允许值由服务端白名单控制，例如 createdAt,desc
-   */
+  /** 允许值由服务端白名单控制，例如 createdAt,desc */
   sort?: SortParameter;
 };
